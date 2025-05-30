@@ -9,7 +9,7 @@ import ExplorMore from "@/app/conponents/commonComponets/exploreMore/ExploreMore
 import AdvertizeBeauty from "@/app/conponents/commonComponets/advertize/Advertize";
 import DynamicGroppingProduct from "@/app/conponents/commonComponets/groupedProduct/DynamicGroppingProduct";
 import SinglePageDescription from "@/app/conponents/commonComponets/singlePageDescription/SinglePageDescription";
-import HomeAdvertize from "@/app/conponents/commonComponets/advertize/HomeAdvertize";
+// import HomeAdvertize from "@/app/conponents/commonComponets/advertize/HomeAdvertize";
 
 const SingleCategory = () => {
   const params = useParams();
@@ -27,7 +27,7 @@ const SingleCategory = () => {
   // Map component types to actual components
   const componentMap = {
     FilterFunction: FilterFunction,
-    Advertize: HomeAdvertize,
+    // Advertize: HomeAdvertize,
     AdvertizeBeauty: AdvertizeBeauty,
     BundlesDiscountBundling: BundlesDiscountBundling,
     ExplorMore: ExplorMore,

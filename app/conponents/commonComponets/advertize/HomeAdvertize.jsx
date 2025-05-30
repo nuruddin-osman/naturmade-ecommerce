@@ -1,10 +1,10 @@
-import { adverties } from "../../dummyData/DummyArray";
+// import { adverties } from "../../dummyData/DummyArray";
 import Advertize from "./Advertize";
 
 const HomeAdvertize = () => {
   return (
     <Advertize
-      advertizeData={adverties}
+      // advertizeData={adverties}
       title="Related Articles"
       exploreLink="#"
     />

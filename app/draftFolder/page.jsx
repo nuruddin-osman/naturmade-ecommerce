@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { productsData } from "./everything/Array";
 import ProductCard from "./everything/ProductCard";
-import HomeAdvertize from "../conponents/commonComponets/advertize/HomeAdvertize";
+// import HomeAdvertize from "../conponents/commonComponets/advertize/HomeAdvertize";
 import VitaminsPage from "../conponents/commonComponets/singlePageDescription/VitaminsPage";
 import Explore from "../conponents/commonComponets/exploreMore/Explore";
 import SinglePageDescription from "../conponents/commonComponets/singlePageDescription/SinglePageDescription";
@@ -35,7 +35,7 @@ const DynamicGroppingProduct = () => {
           </div>
         ))}
       </div>
-      <HomeAdvertize />
+      {/* <HomeAdvertize /> */}
 
       <Explore />
       <SinglePageDescription
