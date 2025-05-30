@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@netlify/next": "^1.4.9",
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
