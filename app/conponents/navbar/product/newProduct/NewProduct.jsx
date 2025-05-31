@@ -1,4 +1,3 @@
-import BestSellarCard from "@/app/conponents/card/bestSellerCard/BestSellarCard";
 import NewProductCard from "@/app/conponents/card/newProductCard/NewProductCard";
 import React from "react";
 

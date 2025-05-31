@@ -19,6 +19,9 @@ const Product = ({ setOpen }) => {
   const [activeItemId, setActiveItemId] = useState(
     productItemcetagory[0]?.category || null
   );
+
+  console.log(activeItemId);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -36,7 +39,6 @@ const Product = ({ setOpen }) => {
     }
     setVisibleComponents(category); // Set the visible component based on category
     setIsProductVisible(false); // Hide the Product component
-    console.log(category);
   };
 
   const handleMenuClickMobile = (category) => {

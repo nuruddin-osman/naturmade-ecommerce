@@ -91,12 +91,25 @@ const Product = () => {
           <SliderForSwiper
             data={filteredProducts}
             slidesPerView={2}
-            spaceBetween={5}
+            spaceBetween={30}
             autoplay={{ delay: 5000 }}
             breakpoints={{
-              640: { slidesPerView: 3, spaceBetween: 10 },
-              768: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 5, spaceBetween: 20 },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+              1400: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+              },
             }}
             renderItem={(item) => (
               <ProductCard item={item} showBuyNow={showBuyNow} />
