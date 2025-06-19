@@ -38,7 +38,10 @@ const QuickStartRecommendation = () => {
         <div className="">
           <ul className="flex items-center gap-2 md:gap-5 justify-center flex-wrap px-2 py-3">
             {categories.map((item) => (
-              <li className="bg-white overflow-hidden rounded-full" key={item}>
+              <li
+                className="bg-white overflow-hidden rounded-full"
+                key={item.id}
+              >
                 <Link
                   onClick={() => filterItem(item)}
                   className={`text-[#4A4A4A]  text-base md:text-xl  font-montserrat font-bold px-5 py-2 inline-block capitalize ${

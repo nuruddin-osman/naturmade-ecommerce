@@ -124,7 +124,7 @@ const ProductDetails = () => {
             <div className="w-full hidden md:flex gap-2 flex-col">
               {product.images?.map((item) => (
                 <div
-                  key={item}
+                  key={item.id}
                   className="w-full h-24 relative overflow-hidden border"
                 >
                   <Image
@@ -258,7 +258,7 @@ const ProductDetails = () => {
           <Paragraph className="!text-left" title={product.description} />
           <ul className="ml-10 list-disc list-inside">
             {product.reviews?.map((item) => (
-              <li key={item} className="">
+              <li key={item.id} className="">
                 {item.comment}---{item.reviewerName}
               </li>
             ))}
@@ -269,7 +269,7 @@ const ProductDetails = () => {
           />
           <ul className="">
             {product.reviews?.map((item) => (
-              <li key={item} className="ml-5 flex gap-3 items-center mb-1">
+              <li key={item.id} className="ml-5 flex gap-3 items-center mb-1">
                 <span className="w-7 h-7 rounded-full border-2 border-[#000] flex items-center justify-center">
                   <Tickmark />
                 </span>

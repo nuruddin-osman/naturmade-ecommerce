@@ -45,12 +45,12 @@ const Navbar = ({ setOpen, open }) => {
     [dispatch]
   );
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [handleClickOutside]);
+  // useEffect(() => {
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, [handleClickOutside]);
 
   return (
     <nav ref={navbarRef}>

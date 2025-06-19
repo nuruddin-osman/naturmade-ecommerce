@@ -74,7 +74,7 @@ const Product = () => {
         </p>
         <ul className="flex items-center gap-2 md:gap-5 justify-center flex-wrap px-2">
           {categories.map((item) => (
-            <li key={item}>
+            <li key={item.id}>
               <Link
                 onClick={() => filterItem(item)}
                 className={`text-[#4A4A4A] text-base md:text-xl font-montserrat font-bold border rounded-full border-[#6B6B6E] px-5 py-2 inline-block capitalize ${

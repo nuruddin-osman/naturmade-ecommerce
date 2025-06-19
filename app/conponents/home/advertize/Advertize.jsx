@@ -57,7 +57,7 @@ const Advertize = () => {
         )}
         <div className="container mx-auto w-full flex flex-col md:flex-row justify-between gap-8 mt-8 mb-4 md:mb-16">
           {allAdvertizeItem.map((item) => (
-            <div key={item} className="w-full md:w-1/3 ">
+            <div key={item.id} className="w-full md:w-1/3 ">
               <div className="w-full h-[25vh] md:h-[36vh] overflow-hidden rounded-bl-3xl rounded-tr-3xl relative">
                 <Image
                   src={item.image}
