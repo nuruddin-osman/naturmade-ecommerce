@@ -13,7 +13,7 @@ import { closeMenu } from "@/app/featurs/toggleMenu/menuSlice";
 import MobileHeader from "../../utilities/MobileHeader";
 
 const Product = ({ setOpen }) => {
-  const [showClose, setShowClose] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isProductVisible, setIsProductVisible] = useState(true); // Product component visibility
   const [visibleComponents, setVisibleComponents] = useState(null); // Track which component to show
   const [activeItemId, setActiveItemId] = useState(
@@ -109,14 +109,26 @@ const Product = ({ setOpen }) => {
         </div>
       )}
 
-      {/* Show the selected component based on visibleComponents */}
+      {/* সাবক্যাটেগরিগুলো - শুধু এনিমেশন ক্লাস যোগ */}
       {!isProductVisible && (
-        <div className="lg:hidden absolute top-0 left-0 z-40 h-fit w-full bg-white">
-          <MobileHeader setShowClose={setShowClose} />
+        <div
+          className={`lg:hidden fixed top-0 left-0 z-40 h-full w-full bg-white transition-transform duration-300 ${
+            isClosing ? "translate-x-full" : "translate-x-0"
+          }`}
+        >
+          <MobileHeader
+            setShowClose={() => {
+              setIsClosing(true);
+              setTimeout(() => {
+                setIsProductVisible(true);
+                setVisibleComponents(null);
+                setIsClosing(false);
+              }, 300);
+            }}
+          />
           {visibleComponents === "a - z" && (
             <AtoZ setIsProductVisible={setIsProductVisible} />
           )}{" "}
-          {/* Pass state setter */}
           {visibleComponents === "by benefit" && <ByBenefits />}
           {visibleComponents === "gummies" && <Gummies />}
           {visibleComponents === "best seller" && <BestSellers />}

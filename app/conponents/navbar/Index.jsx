@@ -33,25 +33,6 @@ const Navbar = ({ setOpen, open }) => {
     setOpen(false);
   };
 
-  const handleClickOutside = useCallback(
-    (event) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
-        // Check if the click is outside the navbar and not on any menu item
-        if (!event.target.closest(".menu-item")) {
-          dispatch(closeMenu());
-        }
-      }
-    },
-    [dispatch]
-  );
-
-  // useEffect(() => {
-  //   document.addEventListener("click", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("click", handleClickOutside);
-  //   };
-  // }, [handleClickOutside]);
-
   return (
     <nav ref={navbarRef}>
       <div className="bg-[#F5F5F7] relative">
@@ -122,10 +103,24 @@ const Navbar = ({ setOpen, open }) => {
               ))}
             </ul>
           </div>
-          {visibleComponents === "products" && showClose && (
-            <div className="lg:hidden bg-white absolute top-0 left-0 z-30 h-[100vh] w-full">
-              <MobileHeader setShowClose={setShowClose} />
-              <Product setOpen={setOpen} />
+
+          {visibleComponents && (
+            <div
+              className={`lg:hidden fixed inset-0 z-20 bg-white transition-all duration-300 ${
+                showClose ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
+              <MobileHeader
+                setShowClose={() => {
+                  setShowClose(false);
+                  setTimeout(() => setVisibleComponents(null), 300);
+                }}
+              />
+
+              {visibleComponents === "products" && (
+                <Product setOpen={setOpen} />
+              )}
+              {/* ... অন্যান্য সাবমেনু কম্পোনেন্ট ... */}
             </div>
           )}
           {visibleComponents === "findVitamins" && showClose && (
