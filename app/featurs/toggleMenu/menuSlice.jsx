@@ -32,6 +32,7 @@ const initialState = {
   isMenuOpen: false, // Determines if the menu or popup is open
   visibleComponent: null, // Tracks which component to show (e.g., "products", "findVitamins", etc.)
   fetchData: loadCartFromLocalStorage(),
+  isVisible: true,
 };
 
 const menuSlice = createSlice({
@@ -41,7 +42,8 @@ const menuSlice = createSlice({
     closeMenu: (state) => {
       state.activeMenu = null;
       state.isMenuOpen = false;
-      state.visibleComponent = null; // Hide all components when the menu is closed
+      state.visibleComponent = null;
+      state.isVisible = false;
     },
     toggleMenu: (state, action) => {
       if (state.activeMenu === action.payload) {
@@ -55,7 +57,11 @@ const menuSlice = createSlice({
       }
     },
     hideComponent: (state) => {
-      state.visibleComponent = null; // Explicitly hide all components
+      state.visibleComponent = null;
+      state.isVisible = false; // Explicitly hide all components
+    },
+    showComponent: (state) => {
+      state.isVisible = true;
     },
     setFetchData: (state, action) => {
       state.fetchData = action.payload;
@@ -75,5 +81,6 @@ export const {
   hideComponent,
   setFetchData,
   loadDataFromStorage,
+  showComponent,
 } = menuSlice.actions;
 export default menuSlice.reducer;

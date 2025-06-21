@@ -18,9 +18,11 @@ const Navbar = ({ setOpen, open }) => {
   const [visibleComponents, setVisibleComponents] = useState(null);
   const navbarRef = useRef(null);
   const dispatch = useDispatch();
-  const { activeMenu, isMenuOpen, visibleComponent } = useSelector(
+
+  const { activeMenu, isMenuOpen, visibleComponent, isVisible } = useSelector(
     (state) => state.menuReducers
   );
+  if (!isVisible) return null;
 
   const handleMenuClick = (menu) => {
     setShowProduct(!showProduct);
@@ -117,9 +119,7 @@ const Navbar = ({ setOpen, open }) => {
                 }}
               />
 
-              {visibleComponents === "products" && (
-                <Product setOpen={setOpen} />
-              )}
+              {visibleComponents === "products" && <Product />}
               {/* ... অন্যান্য সাবমেনু কম্পোনেন্ট ... */}
             </div>
           )}

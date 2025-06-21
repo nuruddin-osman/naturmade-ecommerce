@@ -1,6 +1,7 @@
 "use client";
 import LinkForNavProductABC from "@/app/conponents/utilities/LinkForNavProductABC";
 import {
+  closeMenu,
   hideComponent,
   loadDataFromStorage,
   setFetchData,
@@ -67,8 +68,9 @@ const AtoZCategory = ({ abcd, onCategoryClick }) => {
 
   const handleNavigate = () => {
     dispatch(setFetchData(data));
-    dispatch(hideComponent());
-    onCategoryClick(); // Call the callback function to hide AtoZ component
+
+    dispatch(closeMenu());
+    onCategoryClick();
   };
 
   return (

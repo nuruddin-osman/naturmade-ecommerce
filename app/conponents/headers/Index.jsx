@@ -10,8 +10,9 @@ import SearchCard from "../utilities/SearchCard";
 import { RxCross1 } from "react-icons/rx";
 import YourCart from "./yourCart/YourCart";
 import Logo from "@/public/image/nm-logo-header.avif";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../navbar/Index";
+import { showComponent } from "@/app/featurs/toggleMenu/menuSlice";
 
 const Header = () => {
   const [searchCardShow, setSearchCardShow] = useState(false);
@@ -29,6 +30,7 @@ const Header = () => {
   const cardRef = useRef(null);
   const cartRef = useRef(null);
   const cartBodyRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleSearchShow = () => {
     setSearchCardShow(!searchCardShow);
@@ -67,7 +69,10 @@ const Header = () => {
           <div className="lg:hidden">
             <span
               className="text-3xl cursor-pointer"
-              onClick={() => setOpen(!open)}
+              onClick={() => {
+                setOpen(true);
+                dispatch(showComponent());
+              }}
             >
               <HiOutlineBars3CenterLeft />
             </span>

@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "@/app/featurs/toggleMenu/menuSlice";
 import MobileHeader from "../../utilities/MobileHeader";
 
-const Product = ({ setOpen }) => {
+const Product = () => {
   const [isClosing, setIsClosing] = useState(false);
   const [isProductVisible, setIsProductVisible] = useState(true); // Product component visibility
   const [visibleComponents, setVisibleComponents] = useState(null); // Track which component to show
