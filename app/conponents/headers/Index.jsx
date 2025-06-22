@@ -86,7 +86,7 @@ const Header = () => {
             </div>
             <div className="gap-5 items-center text-[#4b4d4e] font-montserrat text-xl hidden lg:flex">
               <Link
-                href="#"
+                href="/whreToBuy"
                 className="hover:text-[#000] transform transition-all ease-in-out duration-300"
               >
                 WHERE TO BUY
@@ -152,7 +152,7 @@ const Header = () => {
           {searchCardShow && (
             <div
               ref={cardRef}
-              className="absolute top-full right-0 z-30 bg-white w-full"
+              className="absolute top-full right-0 bg-white w-full"
             >
               <SearchCard
                 setInputValue={setInputValue}

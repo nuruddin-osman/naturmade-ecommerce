@@ -74,7 +74,7 @@ const AtoZCategory = ({ abcd, onCategoryClick }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 scroll-auto">
       {Object.keys(displayedCategories).some(
         (letter) => displayedCategories[letter].length > 0
       ) ? (

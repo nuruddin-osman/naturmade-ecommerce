@@ -37,8 +37,8 @@ const Navbar = ({ setOpen, open }) => {
 
   return (
     <nav ref={navbarRef}>
-      <div className="bg-[#F5F5F7] relative">
-        <div className="container mx-auto relative px-4 py-5 hidden lg:block">
+      <div className="bg-[#F5F5F7] relative z-10">
+        <div className="container mx-auto px-4 py-5 hidden lg:block">
           <ul className="flex gap-5">
             {menuItems.map((item, index) => (
               <li

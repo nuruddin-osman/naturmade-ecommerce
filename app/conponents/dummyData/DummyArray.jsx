@@ -42,6 +42,15 @@ import ChangeMySubscriprion from "@/app/subscriptions/questionDirection/ChangeMy
 import ChangeOrderDate from "@/app/subscriptions/questionDirection/ChangeOrderDate";
 import CancelMySubscription from "@/app/subscriptions/questionDirection/CancelMySubscription";
 import UpdateMyShipping from "@/app/subscriptions/questionDirection/UpdateMyShipping";
+import Amazon from "@/public/companies-logo/amazon.webp";
+import Walmart from "@/public/companies-logo/walmart.webp";
+import Walgreens from "@/public/companies-logo/walgreens.webp";
+import Target from "@/public/companies-logo/target.webp";
+import Safeway from "@/public/companies-logo/safeway.webp";
+import Riteaid from "@/public/companies-logo/riteaid.webp";
+import Kroger from "@/public/companies-logo/kroger.webp";
+import CVS from "@/public/companies-logo/CVS.webp";
+import Costco from "@/public/companies-logo/costco.webp";
 
 export const productFilterMenu = [
   { id: "01", title: "The Daily 4" },
@@ -1933,5 +1942,44 @@ export const SubscriptionCustomarArr = [
     heading: "Save",
     images: SaveIcon,
     subHeading: "Enjoy 10% off & FREE shipping!**",
+  },
+];
+
+export const companiesName = [
+  {
+    id: 1,
+    companyLogo: Amazon,
+  },
+  {
+    id: 2,
+    companyLogo: Walmart,
+  },
+  {
+    id: 3,
+    companyLogo: Walgreens,
+  },
+  {
+    id: 4,
+    companyLogo: Safeway,
+  },
+  {
+    id: 5,
+    companyLogo: Target,
+  },
+  {
+    id: 6,
+    companyLogo: Riteaid,
+  },
+  {
+    id: 7,
+    companyLogo: Kroger,
+  },
+  {
+    id: 8,
+    companyLogo: CVS,
+  },
+  {
+    id: 9,
+    companyLogo: Costco,
   },
 ];
