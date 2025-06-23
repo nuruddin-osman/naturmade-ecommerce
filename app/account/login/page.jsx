@@ -1,6 +1,6 @@
 import Heading from "@/app/conponents/utilities/Heading";
 import HeadingLink from "@/app/conponents/utilities/HeadingLink";
-import PrimaryBTN from "@/app/conponents/utilities/PrimaryBTN";
+import PrimarySmallBtn from "@/app/conponents/utilities/PrimarySmallBtn";
 import SubHeading from "@/app/conponents/utilities/SubHeading";
 import Link from "next/link";
 import React from "react";
@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div className="container mx-auto">
       <Heading className="py-4 !font-bold" title="Login" />
-      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-1/2 mx-auto">
+      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-1/3 mx-auto">
         <form className="grid grid-cols-1 gap-4 w-full">
           <div>
             <input
@@ -30,12 +30,12 @@ const Login = () => {
           <Link href="#" className="underline hover:no-underline">
             Forgot your password?
           </Link>
-          <PrimaryBTN title="Sign in" className="w-1/4 mx-auto" />
+          <PrimarySmallBtn title="Sign in" className="w-1/3 mx-auto" />
         </form>
         <HeadingLink
           href="#"
           title="Create account"
-          className="w-1/4 mx-auto !text-center block !text-base mt-6"
+          className="w-1/3 mx-auto !text-center block !text-base mt-6"
         />
         <div className="mt-8">
           <SubHeading
@@ -45,7 +45,7 @@ const Login = () => {
           <HeadingLink
             href="#"
             title="Click Here"
-            className="w-1/5 mx-auto !text-center block !text-sm "
+            className="w-1/4 mx-auto !text-center block !text-sm"
           />
         </div>
       </div>
