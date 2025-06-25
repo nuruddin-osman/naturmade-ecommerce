@@ -6,6 +6,7 @@ import PrimarySmallBtn from "@/app/conponents/utilities/PrimarySmallBtn";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
 
 const initialState = {
   fName: "",
@@ -15,11 +16,25 @@ const initialState = {
 };
 
 const Register = () => {
+  const router = useRouter();
+  const registrationAuth = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      formik.values.email,
+      formik.values.password
+    )
+      .then((user) => {
+        router.push("/account/login");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   const formik = useFormik({
     initialValues: initialState,
     onSubmit: (values) => {
-      alert("he");
       console.log(values);
+      registrationAuth();
     },
   });
 
