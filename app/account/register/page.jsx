@@ -1,18 +1,37 @@
+"use client";
+import React from "react";
 import Heading from "@/app/conponents/utilities/Heading";
-import HeadingLink from "@/app/conponents/utilities/HeadingLink";
 import Paragraph from "@/app/conponents/utilities/Paragraph";
 import PrimarySmallBtn from "@/app/conponents/utilities/PrimarySmallBtn";
-import SubHeading from "@/app/conponents/utilities/SubHeading";
-import Link from "next/link";
-import React from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useFormik } from "formik";
+
+const initialState = {
+  fName: "",
+  lName: "",
+  email: "",
+  password: "",
+};
 
 const Register = () => {
+  const formik = useFormik({
+    initialValues: initialState,
+    onSubmit: (values) => {
+      alert("he");
+      console.log(values);
+    },
+  });
+
   return (
     <div className="container mx-auto">
       <Heading className="py-4 !font-bold" title="Create account" />
       <Paragraph title="Create an account today!" />
       <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-1/3 mx-auto">
-        <form className="grid grid-cols-1 gap-4 w-full">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="grid grid-cols-1 gap-4 w-full"
+        >
           <div>
             <label
               htmlFor="fName"
@@ -23,6 +42,9 @@ const Register = () => {
             <input
               type="text"
               name="fName"
+              onChange={formik.handleChange}
+              value={formik.values.fName}
+              onBlur={formik.handleBlur}
               placeholder="First Name"
               className="w-full p-2 border rounded"
             />
@@ -37,6 +59,9 @@ const Register = () => {
             <input
               type="text"
               name="lName"
+              onChange={formik.handleChange}
+              value={formik.values.lName}
+              onBlur={formik.handleBlur}
               placeholder="Last Name"
               className="w-full p-2 border rounded"
             />
@@ -51,6 +76,9 @@ const Register = () => {
             <input
               type="email"
               name="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
               placeholder="Email"
               className="w-full p-2 border rounded"
             />
@@ -65,11 +93,14 @@ const Register = () => {
             <input
               type="password"
               name="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
               placeholder="password"
               className="w-full p-2 border rounded"
             />
           </div>
-          <PrimarySmallBtn title="Create" className="w-1/3" />
+          <PrimarySmallBtn type="submit" title="Create" className="w-1/3" />
         </form>
       </div>
     </div>

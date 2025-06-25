@@ -33,7 +33,7 @@ const Login = () => {
           <PrimarySmallBtn title="Sign in" className="w-1/3 mx-auto" />
         </form>
         <HeadingLink
-          href="#"
+          href="/account/register"
           title="Create account"
           className="w-1/3 mx-auto !text-center block !text-base mt-6"
         />

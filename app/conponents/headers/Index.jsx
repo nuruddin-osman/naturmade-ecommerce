@@ -92,7 +92,7 @@ const Header = () => {
                 WHERE TO BUY
               </Link>
               <Link
-                href="#"
+                href="/account/login"
                 className="hover:text-[#000] transform transition-all ease-in-out duration-300"
               >
                 SIGN IN
