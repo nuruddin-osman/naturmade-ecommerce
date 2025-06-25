@@ -86,8 +86,14 @@ const Navbar = ({ setOpen, open }) => {
                 <IoCloseOutline />
               </span>
               <span>
-                <Link href="#">Sign In </Link> or{" "}
-                <Link href="#"> Sign Up </Link>
+                <Link href="/account/login" onClick={() => setOpen(false)}>
+                  Sign In{" "}
+                </Link>{" "}
+                or{" "}
+                <Link href="/account/register" onClick={() => setOpen(false)}>
+                  {" "}
+                  Sign Up{" "}
+                </Link>
               </span>
             </div>
             <ul className="flex flex-col gap-8 px-4 mt-8">
@@ -113,6 +119,7 @@ const Navbar = ({ setOpen, open }) => {
               }`}
             >
               <MobileHeader
+                setOpen={setOpen}
                 setShowClose={() => {
                   setShowClose(false);
                   setTimeout(() => setVisibleComponents(null), 300);

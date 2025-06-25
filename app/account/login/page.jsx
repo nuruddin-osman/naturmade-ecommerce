@@ -23,8 +23,9 @@ const Login = () => {
       formik.values.email,
       formik.values.password
     )
-      .then((user) => {
+      .then(({ user }) => {
         router.push("/");
+        localStorage.setItem("users", JSON.stringify(user));
       })
       .catch((error) => {
         console.log(error.message);
@@ -41,7 +42,7 @@ const Login = () => {
   return (
     <div className="container mx-auto">
       <Heading className="py-4 !font-bold" title="Login" />
-      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-1/3 mx-auto">
+      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-full md:w-1/3 mx-auto">
         <form
           onSubmit={formik.handleSubmit}
           className="grid grid-cols-1 gap-4 w-full"
@@ -77,21 +78,28 @@ const Login = () => {
             className="w-1/3 mx-auto"
           />
         </form>
-        <HeadingLink
+        <Link
           href="/account/register"
-          title="Create account"
-          className="w-1/3 mx-auto !text-center block !text-base mt-6"
-        />
+          className="text-base text-[#343438] font-montserrat font-bold leading-8  flex justify-center"
+        >
+          <span className="border-b-2 border-[#FDCA21] border-opacity-100 hover:border-opacity-0 transition-all duration-500">
+            Create account
+          </span>
+        </Link>
+
         <div className="mt-8">
           <SubHeading
             className="!font-bold "
             title="Need help accessing your subscriptions?"
           />
-          <HeadingLink
+          <Link
             href="#"
-            title="Click Here"
-            className="w-1/4 mx-auto !text-center block !text-sm"
-          />
+            className="text-sm text-[#343438] font-montserrat font-bold leading-8  flex justify-center"
+          >
+            <span className="border-b-2 border-[#FDCA21] border-opacity-100 hover:border-opacity-0 transition-all duration-500">
+              Click Here
+            </span>
+          </Link>
         </div>
       </div>
     </div>

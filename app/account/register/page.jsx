@@ -42,10 +42,10 @@ const Register = () => {
     <div className="container mx-auto">
       <Heading className="py-4 !font-bold" title="Create account" />
       <Paragraph title="Create an account today!" />
-      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-1/3 mx-auto">
+      <div className="mb-8 bg-[#f5f5f5] p-3 rounded-md w-full md:w-1/3 mx-auto">
         <form
           onSubmit={formik.handleSubmit}
-          className="grid grid-cols-1 gap-4 w-full"
+          className="grid grid-cols-1 gap-4 w-full "
         >
           <div>
             <label
