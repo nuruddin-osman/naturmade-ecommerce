@@ -11,6 +11,9 @@ import { FaChevronRight } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import Link from "next/link";
 import MobileHeader from "../utilities/MobileHeader";
+import FindVitamins from "./find-vitamins/Index";
+import TipsResources from "./tips&resource/Index";
+import About from "./about/Index";
 
 const Navbar = ({ setOpen, open }) => {
   const [showProduct, setShowProduct] = useState(false);
@@ -64,9 +67,9 @@ const Navbar = ({ setOpen, open }) => {
               <Product />
             </div>
           )}
-          {visibleComponent === "findVitamins" && <h1>Find vitamins for me</h1>}
-          {visibleComponent === "tipsResources" && <h1>Tips & Resources</h1>}
-          {visibleComponent === "about" && <h1>About</h1>}
+          {visibleComponent === "findVitamins" && <FindVitamins />}
+          {visibleComponent === "tipsResources" && <TipsResources />}
+          {visibleComponent === "about" && <About />}
         </div>
       </div>
 
@@ -133,19 +136,19 @@ const Navbar = ({ setOpen, open }) => {
           {visibleComponents === "findVitamins" && showClose && (
             <div className="lg:hidden bg-white absolute top-0 left-0 z-30 h-[100vh] w-full">
               <MobileHeader setShowClose={setShowClose} />
-              <h1>Find vitamins for me</h1>
+              <FindVitamins />
             </div>
           )}
           {visibleComponents === "tipsResources" && showClose && (
             <div className="lg:hidden bg-white absolute top-0 left-0 z-30 h-[100vh] w-full">
               <MobileHeader setShowClose={setShowClose} />
-              <h1>Tips & Resources</h1>
+              <TipsResources />
             </div>
           )}
           {visibleComponents === "about" && showClose && (
             <div className="lg:hidden bg-white absolute top-0 left-0 z-30 h-[100vh] w-full">
               <MobileHeader setShowClose={setShowClose} />
-              <h1>About</h1>
+              <About />
             </div>
           )}
         </>
