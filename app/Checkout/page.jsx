@@ -4,12 +4,15 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Heading from "../conponents/utilities/Heading";
 import SubHeading from "../conponents/utilities/SubHeading";
-import PrimaryBTN from "../conponents/utilities/PrimaryBTN";
 import Link from "next/link";
 import { useFormik } from "formik";
 import { CheckoutValidationSchema } from "../validations/CheckoutValidationSchema";
+import { useRouter } from "next/navigation";
+import PrimaryBTN from "../conponents/utilities/PrimaryBTN";
 const CheckOutPage = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const router = useRouter();
+
   const subtotal = cartItems.reduce(
     (total, item) => total + item.totalPrice,
     0
@@ -43,8 +46,15 @@ const CheckOutPage = () => {
     },
     validationSchema: CheckoutValidationSchema,
     onSubmit: (values) => {
-      if (values.termsAccepted === true) {
-        console.log("Form Data:", values);
+      if (!values.termsAccepted) {
+        alert("Please accept the terms and conditions");
+        return;
+      }
+      const user = localStorage.getItem("users");
+      if (user) {
+        router.push("/");
+      } else {
+        router.push("/account/login");
       }
     },
   });
@@ -70,6 +80,7 @@ const CheckOutPage = () => {
             />
 
             <form
+              id="checkoutForm"
               onSubmit={formik.handleSubmit}
               className="grid grid-cols-1 gap-4 w-full"
             >
@@ -350,11 +361,19 @@ const CheckOutPage = () => {
             </Link>{" "}
           </label>
         </div>
-        <PrimaryBTN
-          onClick={formik.handleSubmit}
-          className="w-full md:w-1/5"
-          title="Confirm Order"
-        />
+
+        <button
+          type="submit"
+          form="checkoutForm"
+          className="w-full md:w-1/5 text-lg lg:text-xl font-montserrat font-bold rounded-bl-3xl rounded-tr-3xl px-4 lg:px-8 py-2 lg:py-4 bg-[#FDCA21] text-[#343438] hover:text-[#000] hover:scale-105 transform transition-all ease-in-out duration-300"
+          onClick={() => {
+            if (!formik.values.termsAccepted) {
+              alert("Please accept the terms and conditions");
+            }
+          }}
+        >
+          Confirm Order
+        </button>
       </div>
     </>
   );
